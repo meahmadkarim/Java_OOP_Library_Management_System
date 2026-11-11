@@ -89,6 +89,9 @@ public class LibraryManager implements LibraryService {
         if (tMember == null) throw new LibraryException("NOT_FOUND", "Member not found.");
 
         // Throw exceptions if requirements are not met
+        if (!tMember.canBorrow()) {
+            throw new LibraryException("BORROW_LIMIT", "Member is inactive or has reached the borrowing limit.");
+        }
         tBook.borrow();
         tMember.incrementBorrow();
 
@@ -162,3 +165,4 @@ public class LibraryManager implements LibraryService {
         System.out.println("-----------------------------");
     }
 }
+

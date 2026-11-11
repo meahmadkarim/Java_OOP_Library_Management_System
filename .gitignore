@@ -1,0 +1,5 @@
+*.class
+build/
+LibraryMS/out/
+LibraryMS/.idea/
+*.iml
